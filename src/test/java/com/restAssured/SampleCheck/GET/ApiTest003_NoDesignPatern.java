@@ -1,8 +1,6 @@
-    package com.restAssured.SampleCheck;
+    package com.restAssured.SampleCheck.GET;
 
-import io.restassured.RestAssured;
-
-public class ApiTest003_NoDesignPatern {
+    public class ApiTest003_NoDesignPatern {
     public void step1(){
         System.out.println("Step 1 ");
     }

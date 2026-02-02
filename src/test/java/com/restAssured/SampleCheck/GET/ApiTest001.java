@@ -1,4 +1,4 @@
-package com.restAssured.SampleCheck;
+package com.restAssured.SampleCheck.GET;
 
 public class ApiTest001 {
     public static void main(String[] args) {

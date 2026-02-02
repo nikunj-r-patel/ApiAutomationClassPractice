@@ -1,4 +1,4 @@
-package com.restAssured.SampleCheck;
+package com.restAssured.SampleCheck.GET;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;

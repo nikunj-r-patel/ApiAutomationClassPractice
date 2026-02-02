@@ -1,4 +1,4 @@
-    package com.restAssured.SampleCheck;
+    package com.restAssured.SampleCheck.GET;
 
     public class ApiTest004_builderPatern {
         public ApiTest004_builderPatern step1() {

@@ -1,7 +1,6 @@
-package com.restAssured.SampleCheck;
+package com.restAssured.SampleCheck.GET;
 
 import io.restassured.RestAssured;
-import io.restassured.response.ValidatableResponse;
 import org.testng.annotations.Test;
 
 public class ApiTest006_BDD_Style_GET {

@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="ApiAutomationClassPractice">
         <classes>
-            <class name="com.restAssured.SampleCheck.ApiTest006_BDD_Style_GET">
+            <class name="com.restAssured.SampleCheck.GET.ApiTest006_BDD_Style_GET">
 
             </class>
         </classes>
