@@ -1,5 +1,8 @@
 package com.restAssured.SampleCheck;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.BeforeMethod;
@@ -14,7 +17,8 @@ public class ApiTest007_non_BDD_Style_GET {
         r = RestAssured.given();
         r.baseUri("https://api.zippopotam.us");
     }
-
+     @Severity(value = SeverityLevel.BLOCKER)
+     @Description ("Testcase-01 non_BDD_Style_GET - POSITIVE TC")
      @Test
     public void test_GET_req_nonBDD_positive () {
 //         String pin_code = "395005";
@@ -25,7 +29,8 @@ public class ApiTest007_non_BDD_Style_GET {
          r.then().log().all().statusCode(200);
 
      }
-
+    @Severity(value = SeverityLevel.CRITICAL)
+    @Description("Testcase-02 non_BDD_Style_GET- NEGATIVE TC ")
     @Test
     public void test_GET_req_nonBDD_negative () {
 //        String pin_code = "-1";
