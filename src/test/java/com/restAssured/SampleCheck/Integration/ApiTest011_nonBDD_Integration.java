@@ -5,8 +5,11 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import org.hamcrest.Matchers;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import io.restassured.RestAssured;
+import static org.assertj.core.api.Assertions.*;
 
 import java.util.Optional;
 
@@ -31,6 +34,9 @@ public class ApiTest011_nonBDD_Integration {
        ValidatableResponse validatableResponse = response.then();
        validatableResponse.statusCode(200);
        token = response.jsonPath().getString("token");
+       validatableResponse.body("token", Matchers.notNullValue());
+       Assert.assertNotNull(token);
+       assertThat(token).isNotNull().isNotEmpty().isNotEmpty().isAlphanumeric();
 
         return token;
     }
@@ -80,6 +86,10 @@ public class ApiTest011_nonBDD_Integration {
         ValidatableResponse validatableResponse= response.then();
         validatableResponse.statusCode(200);
         bookingID = response.jsonPath().getString("bookingid");
+        validatableResponse.body("bookingid", Matchers.notNullValue());
+        Assert.assertNotNull(bookingID);
+        assertThat(bookingID).isNotNull().isNotEmpty().isNotEmpty().isAlphanumeric();
+
         return bookingID;
     }
     @Test(priority=1)
@@ -107,6 +117,21 @@ public class ApiTest011_nonBDD_Integration {
         Response response= requestSpecification.when().put();
         ValidatableResponse validatableResponse= response.then();
         validatableResponse.statusCode(200);
+        System.out.println("this updaed details are  ======> "+ requestSpecification.when().put().asPrettyString());
+
+        validatableResponse.body("bookingid", Matchers.nullValue());
+        validatableResponse.body("firstname", Matchers.equalTo("James3"));
+        validatableResponse.body("lastname", Matchers.equalTo("Brown3"));
+        String firstname = response.jsonPath().getString("firstname");
+        String lastname = response.jsonPath().getString("lastname");
+        Assert.assertEquals(firstname,"James3");
+        Assert.assertEquals(lastname,"Brown3");
+        Assert.assertNotNull(bookingID);
+        assertThat(bookingID).isNotNull().isNotEmpty().isNotEmpty().isAlphanumeric();
+        assertThat(firstname).isEqualTo("James3");
+        assertThat(lastname).isEqualTo("Brown3");
+
+
         System.out.println("the updated booking id is =====>"+bookingID);
         System.out.println("this updaed details are  ======> "+ requestSpecification.when().put().asPrettyString());
     }
